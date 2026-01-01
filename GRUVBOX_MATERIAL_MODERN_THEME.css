@@ -1,0 +1,2104 @@
+/* 
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 🎨 Gruvbox Material Modern Theme
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * 
+ * 设计理念：
+ * - 基于 Gruvbox Material 配色方案
+ * - 融合现代新拟态 (Neumorphism) 设计
+ * - 圆角和扁平化风格
+ * - 玻璃拟态 (Glassmorphism) 效果
+ * - 温暖舒适的视觉体验
+ * 
+ * 配色来源：https://github.com/sainnhe/gruvbox-material
+ * 
+ * 使用方法：
+ * 复制此文件全部内容 → Cherry Studio 设置 → 显示 → 自定义 CSS → 粘贴保存
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ */
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🎨 Gruvbox Material 配色系统
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+:root {
+  /* Gruvbox Material Dark Soft 基础色 */
+  --gruvbox-bg0: #32302f;
+  --gruvbox-bg1: #3c3836;
+  --gruvbox-bg2: #45403d;
+  --gruvbox-bg3: #504945;
+  --gruvbox-bg4: #5a524c;
+  --gruvbox-bg5: hsl(22, 11%, 19%, 0.5);
+  
+  --gruvbox-fg0: #d4be98;
+  --gruvbox-fg1: #ddc7a1;
+  --gruvbox-fg2: #e6d5ae;
+  
+  /* Gruvbox Material 主色调 */
+  --gruvbox-red: #ea6962;
+  --gruvbox-orange: #e78a4e;
+  --gruvbox-yellow: #d8a657;
+  --gruvbox-green: #a9b665;
+  --gruvbox-aqua: #89b482;
+  --gruvbox-blue: #7daea3;
+  --gruvbox-purple: #d3869b;
+  --gruvbox-chocolate: hsl(23deg 14% 25% / 100%) !important;
+  --gruvbox-chocolate-half-transparent: hsl(23deg 14% 25% / 50%) !important;
+  
+  /* 应用到系统变量 */
+  --color-primary: var(--gruvbox-green);
+  --color-primary-soft: #a9b66599;
+  --color-primary-mute: #a9b66533;
+  
+  --status-color-success: #89b482;
+
+  --code-font-family: "source pro code", monospace, "Cascadia Code", "Fira Code", "Consolas", Menlo, Courier;
+  --ant-box-shadow-secondary: 0 6px 15px 1px rgb(0 0 0 / 70%);
+}
+
+
+
+/* 暗色模式配色 */
+[theme-mode='dark'] {
+  --color-background: var(--gruvbox-bg0);
+  --color-background-soft: var(--gruvbox-bg1);
+  --color-background-mute: var(--gruvbox-bg2);
+  
+  --color-text: var(--gruvbox-fg1);
+  --color-text-secondary: var(--gruvbox-fg0);
+  
+  --color-border: rgba(212, 190, 152, 0.15);
+  --color-hover: var(--gruvbox-bg3);
+  --color-active: var(--gruvbox-bg4);
+  
+  /* 玻璃拟态效果的背景 */
+  --glass-bg: rgba(60, 56, 54, 0.7);
+  --glass-border: rgba(212, 190, 152, 0.1);
+  
+  /* 新拟态阴影 */
+  --neu-shadow-1: 6px 6px 12px rgba(0, 0, 0, 0.4);
+  --neu-shadow-2: -6px -6px 12px rgba(80, 73, 69, 0.3);
+  --neu-inset-1: inset 3px 3px 6px rgba(0, 0, 0, 0.3);
+  --neu-inset-2: inset -3px -3px 6px rgba(80, 73, 69, 0.2);
+}
+
+/* 亮色模式配色 */
+[theme-mode='light'] {
+  --gruvbox-light-bg0: #fbf1c7;
+  --gruvbox-light-bg1: #f2e5bc;
+  --gruvbox-light-bg2: #ebdbb2;
+  --gruvbox-light-bg3: #d5c4a1;
+  
+  --gruvbox-light-fg0: #654735;
+  --gruvbox-light-fg1: #4f3829;
+  
+  --color-background: var(--gruvbox-light-bg0);
+  --color-background-soft: var(--gruvbox-light-bg1);
+  --color-background-mute: var(--gruvbox-light-bg2);
+  
+  --color-text: var(--gruvbox-light-fg1);
+  --color-text-secondary: var(--gruvbox-light-fg0);
+  
+  --color-border: rgba(101, 71, 53, 0.15);
+  --color-hover: var(--gruvbox-light-bg3);
+  
+  --glass-bg: rgba(242, 229, 188, 0.7);
+  --glass-border: rgba(101, 71, 53, 0.1);
+  
+  --neu-shadow-1: 6px 6px 12px rgba(0, 0, 0, 0.1);
+  --neu-shadow-2: -6px -6px 12px rgba(255, 255, 255, 0.9);
+  --neu-inset-1: inset 3px 3px 6px rgba(0, 0, 0, 0.08);
+  --neu-inset-2: inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🌍 全局样式优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 圆角系统 */
+:root {
+  --radius: 16px;
+  --radius-large: 24px;
+  --radius-small: 12px;
+  --radius-tiny: 8px;
+  --list-item-border-radius: 16px;
+}
+
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 字体微调 */
+body {
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: 18px !important;
+}
+
+/* 全局字体大小 */
+*:not(.katex-display, .katex-mathml, .katex-html, math, .strut) {
+  font-size: 18px !important;
+}
+
+.markdown .katex span {
+  font-size: 20px !important;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   💬 消息气泡 - 新拟态 + 玻璃拟态风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 用户消息 - 新拟态风格 */
+.message-user .message-content-container {
+  background: hwb(120deg 18.04% 71.76% / 70%) !important;
+  border-radius: var(--radius-large) !important;
+  padding: 0px 15px 0px 18px !important;
+  
+  /* 新拟态阴影 - 优化为更柔和的多层阴影 */
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.15),
+    8px 8px 20px rgba(0, 0, 0, 0.12),
+    -2px -2px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+  
+  /* 内阴影增加立体感 */
+  position: relative;
+  overflow: hidden;
+  
+  color: var(--gruvbox-bg0) !important;
+  font-weight: 500;
+  font-size: 17px !important;
+  
+  /* 微妙的边框 - 不加左边框颜色 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* AI 助手消息 - 玻璃拟态风格 */
+.message-assistant .message-content-container {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  
+  border-radius: var(--radius-large) !important;
+  padding: 10px 20px 20px 20px !important;
+  
+  font-size: 17px !important;
+  
+  /* 玻璃边框 - 移除左边框颜色 */
+  border: 1px solid var(--glass-border);
+  
+  /* 柔和阴影 */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.blZZnF {
+  opacity: 0.8;
+}
+
+/* 对话界面顶端的系统提示词区域 */
+.system-prompt {
+  border: 0px !important;
+  opacity: 0.5;
+}
+.system-prompt:hover {
+  background-color: var(--gruvbox-bg0);
+  opacity: 1;
+}
+
+/* 删除、刷新按钮弹出的确认提示框样式 */
+
+.ant-popover .ant-popover-inner {
+  padding: 20px !important;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📝 Markdown 内容优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 标题样式 - Gruvbox 配色 */
+.markdown h1 {
+  font-size: 1.5em !important;
+  font-weight: 700 !important;
+  margin: 1.2em 0 0.8em 0 !important;
+  padding-bottom: 0.4em !important;
+  color: var(--gruvbox-orange) !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.markdown h2 {
+  font-size: 1.2em !important;
+  font-weight: 600 !important;
+  margin: 1em 0 0.6em 0 !important;
+  padding-bottom: 0.3em !important;
+  color: var(--gruvbox-yellow) !important;
+}
+
+.markdown h3 {
+  font-size: 1.2em !important;
+  font-weight: 600 !important;
+  margin: 0.8em 0 0.5em 0 !important;
+  color: var(--gruvbox-aqua) !important;
+}
+
+.markdown h4 {
+  font-size: 1em !important;
+  color: var(--gruvbox-blue) !important;
+}
+
+.markdown h5,
+.markdown h6 {
+  color: var(--gruvbox-purple) !important;
+}
+
+/* 段落优化 */
+.markdown p {
+  margin: 1em 0 !important;
+  line-height: 1.8 !important;
+  color: var(--color-text) !important;
+}
+
+/* 链接美化 - Gruvbox 蓝色 */
+.markdown a,
+.link {
+  color: var(--gruvbox-blue) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  font-weight: 500;
+}
+
+/* 强调文本 */
+.markdown strong {
+  color: var(--gruvbox-orange);
+  font-weight: 700;
+}
+
+.markdown em {
+  color: var(--gruvbox-purple);
+  font-style: italic;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   💻 代码块 - 新拟态风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 行内代码 */
+.markdown p code,
+.markdown li code {
+  background: var(--gruvbox-bg3) !important;
+  color: var(--gruvbox-orange) !important;
+  font-size: 0.9em !important;
+  font-weight: 600;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 代码块 - 新拟态设计 */
+.markdown pre {
+  background: var(--gruvbox-bg1) !important;
+  border-radius: 0px !important;
+  margin: 1.5em 0 !important;
+  
+  /* 新拟态外阴影 */
+  box-shadow: 
+    var(--neu-shadow-1),
+    var(--neu-shadow-2),
+    inset 0 0 0 1px rgba(212, 190, 152, 0.05);
+  
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  
+  position: relative;
+  overflow: hidden;
+}
+
+/* 代码块内容 */
+.markdown pre code {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--gruvbox-fg1) !important;
+}
+
+
+
+.ant-collapse-ghost {
+  background-color: var(--gruvbox-chocolate-half-transparent) !important;
+  opacity: 0.6;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📋 列表优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.markdown ul,
+.markdown ol {
+  margin: 1em 0 !important;
+  padding-left: 2em !important;
+}
+
+.markdown li {
+  margin-bottom: 0.6em !important;
+  line-height: 1.7 !important;
+}
+
+/* 自定义列表标记 - Gruvbox 配色 */
+.markdown ul li::marker {
+  color: var(--gruvbox-green);
+  font-size: 1.3em;
+}
+
+.markdown ol li::marker {
+  color: var(--gruvbox-orange);
+  font-weight: 700;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📌 引用块 - 玻璃拟态风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.markdown blockquote,
+.markdown .markdown-alert {
+  margin: 1.5em 0 !important;
+  padding: 16px 20px !important;
+  border-radius: var(--radius) !important;
+  
+  /* 玻璃拟态效果 */
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border-left: 4px solid var(--gruvbox-blue) !important;
+  border-top: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  
+  font-style: normal !important;
+  
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.markdown blockquote p {
+  margin: 0.5em 0 !important;
+  color: var(--gruvbox-fg2) !important;
+}
+
+/* 引用块左侧渐变装饰 */
+.markdown blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg,
+    var(--gruvbox-blue) 0%,
+    var(--gruvbox-aqua) 50%,
+    var(--gruvbox-green) 100%
+  );
+  border-radius: 4px 0 0 4px;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📊 表格 - 扁平 + 圆角风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.markdown table {
+  margin: 2em 0 !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  
+  /* 新拟态阴影 */
+  box-shadow: 
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+  
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-background-soft);
+}
+
+.markdown th {
+  background: linear-gradient(135deg, var(--gruvbox-orange), var(--gruvbox-yellow)) !important;
+  color: var(--gruvbox-bg0) !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  padding: 14px 18px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+}
+
+.markdown td {
+  padding: 12px 18px !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+}
+
+.markdown tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* 斑马纹效果 */
+.markdown tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🖼️ 图片优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.markdown img {
+  border-radius: var(--radius) !important;
+  margin: 1.5em 0 !important;
+  max-width: 100%;
+  
+  /* 新拟态阴影 */
+  box-shadow: 
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+  
+  border: 1px solid var(--color-border);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🎨 滚动条 - Gruvbox 风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gruvbox-green), var(--gruvbox-aqua));
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✨ 选中文本高亮
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+::selection {
+  background: var(--gruvbox-orange);
+  color: var(--gruvbox-bg0);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--gruvbox-orange);
+  color: var(--gruvbox-bg0);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📱 输入框优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+textarea:focus,
+input:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 用户提示词输入框：圆角矩形，半透明背景，毛玻璃效果 */
+
+#inputbar {
+  position: relative;
+  resize: none;
+  background: rgba(41, 29, 34, 0.5) !important;
+  margin-right: 10px;
+  border: 1px solid #333 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 光晕边框 */
+#inputbar::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #ff6a01, #f8c91c, #8a2be2, #00bfff, #ff6a01
+  );
+  background-size: 300% 300%;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#inputbar:focus-within::before {
+  opacity: 1;
+}
+
+/* 输入框聚焦的静态光晕框 */
+#inputbar:focus-within {
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 106, 1, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+  }
+}
+
+#inputbar > textarea {
+  font-family: var(--code-font-family);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🎯 分隔线美化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.markdown hr {
+  border: none !important;
+  height: 3px !important;
+  margin: 2em 0 !important;
+  border-radius: 2px;
+  
+  /* 渐变分隔线 */
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--gruvbox-orange) 20%,
+    var(--gruvbox-yellow) 40%,
+    var(--gruvbox-green) 60%,
+    var(--gruvbox-aqua) 80%,
+    transparent 100%) !important;
+  
+  opacity: 0.6;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📖 脚注美化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.footnotes {
+  margin-top: 2em !important;
+  padding: 16px 20px !important;
+  
+  /* 玻璃拟态效果 */
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border-radius: var(--radius) !important;
+  border-left: 3px solid var(--gruvbox-purple);
+  border-top: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.footnotes h4 {
+  color: var(--gruvbox-purple) !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+.markdown .footnote-ref {
+  background: var(--gruvbox-purple);
+  color: var(--gruvbox-bg0);
+  padding: 3px 7px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0 2px;
+  
+  box-shadow: 0 2px 6px rgba(211, 134, 155, 0.3);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🎪 卡片和容器 - 新拟态风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.ant-card,
+.hero-card {
+  background: var(--color-background-soft) !important;
+  border-radius: var(--radius) !important;
+  
+  /* 新拟态效果 */
+  box-shadow: 
+    var(--neu-shadow-1),
+    var(--neu-shadow-2) !important;
+  
+  border: 1px solid var(--color-border) !important;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🌟 按钮优化 - 扁平 + 新拟态
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+
+.ant-btn-primary, .hero-button-primary {
+  background: linear-gradient(135deg, var(--gruvbox-green), var(--gruvbox-aqua)) !important;
+  border: none !important;
+  border-radius: var(--radius-small) !important;
+  
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.3),
+    -2px -2px 6px rgba(169, 182, 101, 0.2) !important;
+  
+  color: var(--gruvbox-bg0) !important;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.ant-btn-primary:active, .hero-button-primary:active, .ant-btn-default:active {
+  transform: translateY(0);
+  box-shadow: 
+    var(--neu-inset-1),
+    var(--neu-inset-2) !important;
+}
+
+.ant-btn-default {
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 10px;
+}
+
+.ant-btn-default {
+  background: var(--gruvbox-bg1);
+  color: #ddd;
+}
+.ant-btn-default:hover {
+  background: var(--gruvbox-bg2) !important;
+  color: #ddd !important;
+}
+
+/* 加载指示器 - 已移除 pulse 动画 */
+.loading {
+  opacity: 0.7;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📱 响应式优化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 平板适配 */
+@media (max-width: 1024px) {
+  .message-content-container {
+    max-width: 90% !important;
+  }
+  
+  :root {
+    --radius: 14px;
+    --radius-large: 20px;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .message-content-container {
+    max-width: 95% !important;
+    padding: 12px 16px !important;
+  }
+  
+  .markdown {
+    font-size: 14px !important;
+  }
+  
+  .markdown h1 {
+    font-size: 1.8em !important;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5em !important;
+  }
+  
+  :root {
+    --radius: 12px;
+    --radius-large: 16px;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🎨 额外的视觉增强
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 主内容区玻璃效果 */
+#content-container {
+  background: var(--color-background) !important;
+  /* background-image: url('https://img.moegirl.org.cn/common/d/d6/Girls_Last_Tour_KV3.jpg') !important; */
+  background-image: url('/Users/lelouch/Downloads/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+[navbar-position='left'] #content-container {
+  border-top-left-radius: var(--radius-large);
+  border-left: 0px;
+  border-top: 1px solid var(--color-border);
+  
+  /* 微妙的玻璃效果 */
+  backdrop-filter: blur(5px);
+}
+
+/* 导航栏项目悬停 - 已移除悬停效果 */
+[navbar-position='left'] .ant-menu-item,
+[navbar-position='left'] .hero-menu-item {
+  border-radius: var(--radius-small);
+}
+
+/* Tooltip 美化 */
+.ant-tooltip-inner,
+.hero-tooltip-inner {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-small);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ 其它部分
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* 各个设置界面加毛玻璃效果 */
+/* >>>>>> 自行调整模糊半径 px 值 <<<<<< */
+.eTRMVy, .iaOCiL, .faeYdD, .deaugY, .jGVA, .lfzpcl, .etgWPh, .jKZwzC, .jztgKy,.crcduP  {
+    backdrop-filter: blur(10px);
+    background-color: var(--gruvbox-bg5) !important;;
+}
+
+/* 设置界面的输入框默认背景颜色 */
+.ant-input-outlined {
+  background-color: transparent;
+  border: 1px solid var(--gruvbox-bg1);
+}
+
+span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg.ant-input-outlined.css-var-«r0».ant-input-css-var, span.ant-input-affix-wrapper-focused.ant-input-affix-wrapper-lg.ant-input-outlined.css-var-«r0».ant-input-css-var, span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg.ant-input-outlined.css-var-«r0».ant-input-css-var:hover {
+  border: none;
+  box-shadow: none;;
+  background-color: transparent;
+}
+
+
+[class^="SettingContent"] .ant-collapse-header {
+  background-color: var(--gruvbox-chocolate-half-transparent) !important;
+  border-radius: 10px !important;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✨ 话题边栏 - 现代拟态设计 + 磨砂玻璃
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 话题边栏容器 - 磨砂玻璃基础效果 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right {
+  /* 磨砂玻璃背景 */
+  background: var(--gruvbox-chocolate) !important;
+  /* backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%); */
+  
+  /* 新拟态边框 */
+  border-left: 1px solid rgba(212, 190, 152, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  
+  /* 柔和的外阴影 */
+  box-shadow: 
+    -8px 0 24px rgba(0, 0, 0, 0.25),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05);
+  
+  /* 圆角 */
+  border-radius: 0;
+  
+  /* 添加微妙的内部光效 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 磨砂玻璃顶部光晕效果 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(169, 182, 101, 0.3) 30%,
+    rgba(137, 180, 130, 0.3) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* 磨砂玻璃底部渐变 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(50, 48, 47, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 话题边栏标题区域 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-nav {
+  /* 新拟态设计 */
+  background: rgba(60, 56, 54, 0.5) !important;
+  backdrop-filter: blur(10px);
+  
+  margin: 0 !important;
+  padding: 16px 16px 8px 16px !important;
+  
+  /* 底部分隔线 */
+  border-bottom: 1px solid rgba(212, 190, 152, 0.1);
+  
+  /* 柔和的内阴影 */
+  box-shadow: 
+    inset 0 -1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* 标签按钮 - 新拟态风格 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab {
+  background: rgba(60, 56, 54, 0.6) !important;
+  backdrop-filter: blur(8px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.1) !important;
+  border-radius: 10px !important;
+  
+  padding: 8px 16px !important;
+  margin: 0 6px 8px 0 !important;
+  
+  /* 新拟态阴影 */
+  box-shadow: 
+    3px 3px 8px rgba(0, 0, 0, 0.3),
+    -2px -2px 6px rgba(80, 73, 69, 0.2);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 标签按钮文字 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab-btn {
+  color: var(--gruvbox-fg0) !important;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* 标签按钮悬停效果 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab:hover {
+  background: rgba(69, 64, 61, 0.7) !important;
+  border-color: rgba(169, 182, 101, 0.3) !important;
+  
+  box-shadow: 
+    4px 4px 10px rgba(0, 0, 0, 0.35),
+    -2px -2px 8px rgba(80, 73, 69, 0.25);
+  
+  transform: translateY(-1px);
+}
+
+/* 激活状态标签 - 磨砂玻璃高光 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab-active {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.25),
+    rgba(137, 180, 130, 0.2)
+  ) !important;
+  backdrop-filter: blur(12px);
+  
+  border-color: rgba(169, 182, 101, 0.4) !important;
+  
+  /* 内陷效果 */
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset -1px -1px 4px rgba(169, 182, 101, 0.2),
+    0 0 16px rgba(169, 182, 101, 0.2);
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--gruvbox-green) !important;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(169, 182, 101, 0.3);
+}
+
+/* 话题列表内容区域 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-content {
+  padding: 12px !important;
+}
+
+/* 话题列表项 - 现代卡片风格 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .topic-item,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="TopicItem"],
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="topic-"] {
+  /* 磨砂玻璃卡片 */
+  background: rgba(60, 56, 54, 0.4) !important;
+  backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.1) !important;
+  border-radius: 12px !important;
+  
+  margin-bottom: 8px !important;
+  padding: 12px 14px !important;
+  
+  /* 新拟态浮起效果 */
+  box-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.2),
+    -1px -1px 4px rgba(80, 73, 69, 0.15);
+  
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 话题列表项悬停 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .topic-item:hover,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="TopicItem"]:hover,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="topic-"]:hover {
+  background: rgba(69, 64, 61, 0.5) !important;
+  border-color: rgba(169, 182, 101, 0.25) !important;
+  
+  box-shadow: 
+    3px 3px 10px rgba(0, 0, 0, 0.25),
+    -2px -2px 6px rgba(80, 73, 69, 0.2),
+    0 0 12px rgba(169, 182, 101, 0.1);
+  
+  transform: translateX(3px) translateY(-1px);
+}
+
+/* 激活的话题项 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .topic-item.active,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="TopicItem"].active,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="topic-"].active {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.2),
+    rgba(137, 180, 130, 0.15)
+  ) !important;
+  backdrop-filter: blur(12px);
+  
+  border-color: rgba(169, 182, 101, 0.35) !important;
+  
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+    inset -1px -1px 3px rgba(169, 182, 101, 0.15),
+    0 0 14px rgba(169, 182, 101, 0.15);
+}
+
+/* 话题标题文字增强 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .topic-title,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="title"] {
+  color: var(--gruvbox-fg1) !important;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 话题时间戳 - 柔和显示 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .topic-time,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="time"],
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="date"] {
+  color: var(--gruvbox-fg0) !important;
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+/* 滚动条美化 - 匹配主题 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right ::-webkit-scrollbar-track {
+  background: rgba(50, 48, 47, 0.3);
+  border-radius: 4px;
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.5), 
+    rgba(137, 180, 130, 0.5)
+  );
+  border-radius: 4px;
+  border: 2px solid rgba(50, 48, 47, 0.3);
+  
+  box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 6px rgba(169, 182, 101, 0.2);
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.7), 
+    rgba(137, 180, 130, 0.7)
+  );
+}
+
+/* 空状态提示 - 玻璃拟态卡片 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-empty,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="Empty"] {
+  padding: 40px 20px;
+  
+  background: rgba(60, 56, 54, 0.3) !important;
+  backdrop-filter: blur(8px);
+  
+  border: 1px dashed rgba(212, 190, 152, 0.2);
+  border-radius: 16px;
+  
+  margin: 20px;
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-empty-description {
+  color: var(--gruvbox-fg0) !important;
+  opacity: 0.6;
+}
+
+/* 搜索框增强（如果有） */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-input-search,
+.Container-idDvxQ.kGuQkQ.home-tabs.right input[type="search"],
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="search"] input {
+  background: rgba(60, 56, 54, 0.6) !important;
+  backdrop-filter: blur(8px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.15) !important;
+  border-radius: 10px !important;
+  
+  color: var(--gruvbox-fg1) !important;
+  
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 2px rgba(80, 73, 69, 0.1);
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-input-search:focus,
+.Container-idDvxQ.kGuQkQ.home-tabs.right input[type="search"]:focus,
+.Container-idDvxQ.kGuQkQ.home-tabs.right [class*="search"] input:focus {
+  border-color: rgba(169, 182, 101, 0.4) !important;
+  
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 2px rgba(80, 73, 69, 0.1),
+}
+
+/* 操作按钮（删除、编辑等）- 新拟态按钮 */
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-btn,
+.Container-idDvxQ.kGuQkQ.home-tabs.right button[class*="Button"] {
+  background: rgba(60, 56, 54, 0.6) !important;
+  backdrop-filter: blur(6px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.1) !important;
+  border-radius: 8px !important;
+  
+  box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.2),
+    -1px -1px 3px rgba(80, 73, 69, 0.15);
+  
+  transition: all 0.2s ease;
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-btn:hover,
+.Container-idDvxQ.kGuQkQ.home-tabs.right button[class*="Button"]:hover {
+  background: rgba(69, 64, 61, 0.7) !important;
+  border-color: rgba(169, 182, 101, 0.25) !important;
+  
+  box-shadow: 
+    3px 3px 8px rgba(0, 0, 0, 0.25),
+    -2px -2px 5px rgba(80, 73, 69, 0.2),
+    0 0 10px rgba(169, 182, 101, 0.1);
+  
+  transform: translateY(-1px);
+}
+
+.Container-idDvxQ.kGuQkQ.home-tabs.right .ant-btn:active,
+.Container-idDvxQ.kGuQkQ.home-tabs.right button[class*="Button"]:active {
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+    inset -1px -1px 2px rgba(80, 73, 69, 0.1);
+  
+  transform: translateY(0);
+}
+
+/* 亮色模式适配 */
+[theme-mode='light'] .Container-idDvxQ.kGuQkQ.home-tabs.right {
+  background: rgba(251, 241, 199, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  
+  border-left-color: rgba(101, 71, 53, 0.15);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  
+  box-shadow: 
+    -8px 0 24px rgba(0, 0, 0, 0.08),
+    inset 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+[theme-mode='light'] .Container-idDvxQ.kGuQkQ.home-tabs.right::before {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(169, 182, 101, 0.2) 30%,
+    rgba(137, 180, 130, 0.2) 70%,
+    transparent 100%
+  );
+}
+
+[theme-mode='light'] .Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab {
+  background: rgba(242, 229, 188, 0.6) !important;
+  border-color: rgba(101, 71, 53, 0.15) !important;
+  
+  box-shadow: 
+    3px 3px 8px rgba(0, 0, 0, 0.08),
+    -2px -2px 6px rgba(255, 255, 255, 0.6);
+}
+
+[theme-mode='light'] .Container-idDvxQ.kGuQkQ.home-tabs.right .ant-tabs-tab-active {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.15),
+    rgba(137, 180, 130, 0.1)
+  ) !important;
+  
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.1),
+    inset -1px -1px 4px rgba(169, 182, 101, 0.15),
+    0 0 16px rgba(169, 182, 101, 0.15);
+}
+
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ 左侧助手与分类列表
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* CSS变量定义 */
+.TagsContainer-erHQJu:nth-child(1) { --group-color: 59, 130, 246; }
+.TagsContainer-erHQJu:nth-child(2) { --group-color: 34, 197, 94; }
+.TagsContainer-erHQJu:nth-child(3) { --group-color: 168, 85, 247; }
+.TagsContainer-erHQJu:nth-child(4) { --group-color: 249, 115, 22; }
+.TagsContainer-erHQJu:nth-child(5) { --group-color: 239, 68, 68; }
+.TagsContainer-erHQJu:nth-child(6) { --group-color: 6, 182, 212; }
+.TagsContainer-erHQJu:nth-child(7) { --group-color: 245, 158, 11; }
+.TagsContainer-erHQJu:nth-child(8) { --group-color: 156, 163, 175; }
+.TagsContainer-erHQJu:nth-child(9) { --group-color: 219, 39, 119; }
+.TagsContainer-erHQJu:nth-child(10) { --group-color: 99, 102, 241; }
+
+/* 分组容器基础样式 */
+.TagsContainer-erHQJu {
+    margin: 12px 8px;
+    padding: 12px 8px;
+    border-radius: 12px;
+    background: rgba(var(--group-color, 156, 163, 175), 0.06);
+    border: 1px solid rgba(var(--group-color, 156, 163, 175), 0.12);
+    overflow: hidden;
+}
+
+.TagsContainer-erHQJu:has(.GroupTitle-bZsCjw) {
+    padding: 0;
+}
+
+/* 分组标题 */
+.GroupTitle-bZsCjw {
+    margin: 0;
+    padding: 14px 16px;
+    background: rgba(var(--group-color, 156, 163, 175), 0.12);
+    border: none;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid rgba(var(--group-color, 156, 163, 175), 0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.GroupTitle-bZsCjw:hover {
+    background: rgba(var(--group-color, 156, 163, 175), 0.16);
+}
+
+.GroupTitleName-ifOZPj {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(var(--group-color, 156, 163, 175), 0.9);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    letter-spacing: 0.025em;
+}
+
+.GroupTitleName-ifOZPj .anticon {
+    margin-right: 8px;
+    color: rgba(var(--group-color, 156, 163, 175), 0.7);
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.GroupTitleDivider-hDobAZ {
+    display: none;
+}
+
+.TagsContainer-erHQJu:has(.GroupTitle-bZsCjw) > div:not(.GroupTitle-bZsCjw) {
+    padding: 0 12px;
+}
+
+.TagsContainer-erHQJu:has(.GroupTitle-bZsCjw) .Container-lnWGMS:last-of-type,
+.TagsContainer-erHQJu:has(.GroupTitle-bZsCjw) .AssistantAddItem-cnwcTr {
+    margin-bottom: 12px;
+}
+
+/* 助手容器 */
+.Container-cFFyqi {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    margin: 2px 0;
+    background: transparent;
+}
+
+.AssistantNameRow-eRVxCS {
+    background: transparent !important;
+    border: none;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    border-radius: inherit;
+    transition: all 0.25s ease;
+}
+
+.Container-gOOWxz {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.AssistantName-cHMAyM {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #e5e7eb;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.25s ease;
+    flex: 1;
+    min-width: 0;
+    margin-left: 8px;
+}
+
+/* 减少助手列表两侧的 padding */
+.home-tabs-content > [class^="ScrollBarContainer"] {
+	padding: 0px;
+  margin: 0px;
+}
+
+/* 修复双重圆形的关键：去除MenuButton背景 */
+.MenuButton-kywHgl {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 8px;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.TopicCount-IXqyx {
+    background: rgba(255, 255, 255, 0.08);
+    color: #9ca3af;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 500;
+    min-width: 16px;
+    text-align: center;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: none;
+}
+
+/* hover状态 */
+.Container-cFFyqi:hover {
+    background: rgba(var(--group-color, 156, 163, 175), 0.08) !important;
+}
+
+.Container-cFFyqi:hover .TopicCount-IXqyx {
+    background: rgba(var(--group-color, 156, 163, 175), 0.12);
+    border-color: rgba(var(--group-color, 156, 163, 175), 0.2);
+    color: rgba(var(--group-color, 156, 163, 175), 0.85);
+    transform: scale(1.02);
+}
+
+/* 激活状态 */
+.Container-cFFyqi.active {
+    background: rgba(var(--group-color, 156, 163, 175), 0.1) !important;
+    border: 1px solid rgba(var(--group-color, 156, 163, 175), 0.2);
+    box-shadow: 0 1px 2px rgba(var(--group-color, 156, 163, 175), 0.08);
+}
+
+.Container-cFFyqi.active .AssistantNameRow-eRVxCS {
+    font-weight: 500;
+}
+
+.Container-cFFyqi.active .AssistantName-cHMAyM {
+    color: rgba(var(--group-color, 156, 163, 175), 0.95) !important;
+    font-weight: 500;
+}
+
+.Container-cFFyqi.active .TopicCount-IXqyx {
+    background: rgba(var(--group-color, 156, 163, 175), 0.9);
+    color: #ffffff !important;
+    border-color: rgba(var(--group-color, 156, 163, 175), 0.9);
+    font-weight: 600;
+    transform: scale(1.02);
+}
+
+.Container-cFFyqi.active:hover {
+    background: rgba(var(--group-color, 156, 163, 175), 0.14) !important;
+    box-shadow: 0 2px 3px rgba(var(--group-color, 156, 163, 175), 0.12);
+    transform: translateX(1px);
+}
+
+.Container-cFFyqi.active:hover .TopicCount-IXqyx {
+    background: rgba(var(--group-color, 156, 163, 175), 1);
+    color: #ffffff !important;
+    border-color: rgba(var(--group-color, 156, 163, 175), 1);
+    transform: scale(1.05);
+}
+
+/* 浅色模式 */
+@media (prefers-color-scheme: light) {
+    .AssistantName-cHMAyM {
+        color: #374151;
+    }
+    
+    .GroupTitleName-ifOZPj {
+        color: rgba(var(--group-color, 156, 163, 175), 0.85);
+    }
+    
+    .GroupTitleName-ifOZPj .anticon {
+        color: rgba(var(--group-color, 156, 163, 175), 0.65);
+    }
+    
+    .Container-cFFyqi.active .AssistantName-cHMAyM {
+        color: rgba(var(--group-color, 156, 163, 175), 0.9) !important;
+    }
+    
+    .Container-cFFyqi:hover {
+        background: rgba(var(--group-color, 156, 163, 175), 0.06) !important;
+    }
+    
+    .Container-cFFyqi.active {
+        background: rgba(var(--group-color, 156, 163, 175), 0.08) !important;
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.25);
+        box-shadow: 0 1px 2px rgba(var(--group-color, 156, 163, 175), 0.06);
+    }
+    
+    .Container-cFFyqi.active:hover {
+        background: rgba(var(--group-color, 156, 163, 175), 0.12) !important;
+        box-shadow: 0 2px 3px rgba(var(--group-color, 156, 163, 175), 0.1);
+    }
+    
+    .TopicCount-IXqyx {
+        background: rgba(0, 0, 0, 0.05);
+        color: #6b7280;
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+    
+    .Container-cFFyqi:hover .TopicCount-IXqyx {
+        background: rgba(var(--group-color, 156, 163, 175), 0.1);
+        color: rgba(var(--group-color, 156, 163, 175), 0.8);
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.15);
+    }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+    .TagsContainer-erHQJu {
+        background: rgba(var(--group-color, 156, 163, 175), 0.08);
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.15);
+    }
+    
+    .GroupTitle-bZsCjw {
+        background: rgba(var(--group-color, 156, 163, 175), 0.15);
+        border-bottom-color: rgba(var(--group-color, 156, 163, 175), 0.1);
+    }
+    
+    .GroupTitle-bZsCjw:hover {
+        background: rgba(var(--group-color, 156, 163, 175), 0.2);
+    }
+    
+    .GroupTitleName-ifOZPj {
+        color: rgba(var(--group-color, 156, 163, 175), 0.95);
+    }
+    
+    .GroupTitleName-ifOZPj .anticon {
+        color: rgba(var(--group-color, 156, 163, 175), 0.8);
+    }
+    
+    .Container-cFFyqi:hover {
+        background: rgba(var(--group-color, 156, 163, 175), 0.1) !important;
+    }
+    
+    .Container-cFFyqi.active {
+        background: rgba(var(--group-color, 156, 163, 175), 0.12) !important;
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.3);
+        box-shadow: 0 1px 2px rgba(var(--group-color, 156, 163, 175), 0.1);
+    }
+    
+    .Container-cFFyqi.active:hover {
+        background: rgba(var(--group-color, 156, 163, 175), 0.16) !important;
+        box-shadow: 0 2px 3px rgba(var(--group-color, 156, 163, 175), 0.15);
+    }
+}
+
+/* 表情符号背景 */
+.EmojiBackground-fPdsEN {
+    border-radius: 6px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* 添加助手按钮 */
+.AssistantAddItem-cnwcTr {
+    margin: 8px 0 0 0;
+    padding: 12px;
+    border: 2px dashed rgba(var(--group-color, 156, 163, 175), 0.3);
+    border-radius: 8px;
+    background: rgba(var(--group-color, 156, 163, 175), 0.02);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.AssistantAddItem-cnwcTr:hover {
+    border-color: rgba(var(--group-color, 156, 163, 175), 0.5);
+    background: rgba(var(--group-color, 156, 163, 175), 0.08);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(var(--group-color, 156, 163, 175), 0.15);
+}
+
+.AssistantAddItem-cnwcTr .AssistantName-hllWJP {
+    color: rgba(var(--group-color, 156, 163, 175), 0.8);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.AssistantAddItem-cnwcTr .anticon-plus {
+    margin-right: 8px;
+    font-size: 12px;
+    color: rgba(var(--group-color, 156, 163, 175), 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+    .AssistantAddItem-cnwcTr {
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.25);
+        background: rgba(var(--group-color, 156, 163, 175), 0.03);
+    }
+    
+    .AssistantAddItem-cnwcTr:hover {
+        border-color: rgba(var(--group-color, 156, 163, 175), 0.4);
+        background: rgba(var(--group-color, 156, 163, 175), 0.1);
+    }
+    
+    .AssistantAddItem-cnwcTr .AssistantName-hllWJP {
+        color: rgba(var(--group-color, 156, 163, 175), 0.9);
+    }
+    
+    .AssistantAddItem-cnwcTr .anticon-plus {
+        color: rgba(var(--group-color, 156, 163, 175), 0.95);
+    }
+}
+
+.hxOKnN {
+  overflow-y: none;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ 话题列表项激活状态
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.hqqzIm {
+  width: calc(var(--assistants-width) - 26px) !important;
+}
+
+.topics-tab.draggable-virtual-list {
+  padding: 10px 0px 10px 10px;
+}
+
+/* 话题项本身加圆角 */
+.hqqzIm.singlealone {
+  border-radius: 8px !important;
+}
+
+/* 激活的话题项 - 移除左边框，使用背景色指示 */
+.hqqzIm.singlealone.active {
+  /* 移除左边框 */
+  border-left: none !important;
+  
+  /* 渐变背景作为激活指示器 */
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.18),
+    rgba(137, 180, 130, 0.12)
+  ) !important;
+  backdrop-filter: blur(12px);
+  
+  /* 柔和的整体边框 */
+  border: 1px solid rgba(169, 182, 101, 0.3) !important;
+  
+  /* 新拟态内陷效果 */
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+    inset -1px -1px 3px rgba(169, 182, 101, 0.15);
+  
+  /* 圆角保持一致 */
+  border-radius: 8px !important;
+}
+
+/* 激活项悬停效果增强 */
+.hqqzIm.singlealone.active:hover {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.22),
+    rgba(137, 180, 130, 0.16)
+  ) !important;
+  
+  border-color: rgba(169, 182, 101, 0.4) !important;
+  
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.28),
+    inset -1px -1px 4px rgba(169, 182, 101, 0.18) !important;
+}
+
+/* 激活项内的文字增强 */
+.hqqzIm.singlealone.active .topic-title,
+.hqqzIm.singlealone.active [class*="title"] {
+  color: var(--gruvbox-green) !important;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 亮色模式适配 */
+[theme-mode='light'] .hqqzIm.singlealone.active {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.12),
+    rgba(137, 180, 130, 0.08)
+  ) !important;
+  
+  border-color: rgba(169, 182, 101, 0.35) !important;
+  
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    inset -1px -1px 3px rgba(169, 182, 101, 0.12) !important;
+}
+
+[theme-mode='light'] .hqqzIm.singlealone.active:hover {
+  background: linear-gradient(135deg,
+    rgba(169, 182, 101, 0.16),
+    rgba(137, 180, 130, 0.12)
+  ) !important;
+  
+  border-color: rgba(169, 182, 101, 0.45) !important;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ 快捷助手
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+
+/* 快捷助手设置窗口最小宽度 */
+.ant-modal-root .ant-modal-centered .ant-modal {
+  width: min(900px, 70vw) !important;
+}
+/* 快捷助手底下按钮 padding 和 背景 */
+.css-var-«r0».ant-tag {
+	--ant-tag-default-bg: var(--gruvbox-bg3);
+    padding: 5px;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ 设置面板滚动条美化
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 设置面板滚动条 - 与主题协调的 Gruvbox 风格 */
+.Settings-cOWjoO.rLLBC::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.Settings-cOWjoO.rLLBC::-webkit-scrollbar-track {
+  background: rgba(50, 48, 47, 0.3);
+  border-radius: 10px;
+}
+
+.Settings-cOWjoO.rLLBC::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.5), 
+    rgba(137, 180, 130, 0.5)
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(50, 48, 47, 0.3);
+  
+  box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 6px rgba(169, 182, 101, 0.2);
+}
+
+.Settings-cOWjoO.rLLBC::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.7), 
+    rgba(137, 180, 130, 0.7)
+  );
+}
+
+/* 亮色模式适配 */
+[theme-mode='light'] .Settings-cOWjoO.rLLBC::-webkit-scrollbar-track {
+  background: rgba(251, 241, 199, 0.3);
+}
+
+[theme-mode='light'] .Settings-cOWjoO.rLLBC::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.4), 
+    rgba(137, 180, 130, 0.4)
+  );
+  border-color: rgba(251, 241, 199, 0.3);
+  
+  box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+    0 0 6px rgba(169, 182, 101, 0.15);
+}
+
+[theme-mode='light'] .Settings-cOWjoO.rLLBC::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(169, 182, 101, 0.6), 
+    rgba(137, 180, 130, 0.6)
+  );
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✨ 设置面板整体美化 - Gruvbox Material 磨砂玻璃风格
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* 设置面板遮罩层 */
+.ant-modal-root .ant-modal-mask {
+  background: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 覆盖默认动画 - 纯淡入效果，无位置变化 */
+/* 遮罩层淡入淡出 */
+.ant-modal-mask {
+  animation-duration: 0.3s !important;
+}
+
+/* 完全禁用所有 zoom 相关的动画和变换 */
+.ant-modal-root .ant-modal-wrap,
+.ant-modal-wrap {
+  /* 移除 wrap 上的动画 */
+  animation: none !important;
+}
+
+/* Modal 容器：移除所有默认动画，应用纯淡入 */
+.ant-modal-root .ant-zoom-enter,
+.ant-modal-root .ant-zoom-appear,
+.ant-zoom-enter,
+.ant-zoom-appear {
+  animation: antFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  transform: none !important;
+}
+
+/* Modal 本体：强制移除 transform */
+.ant-modal-root .ant-zoom-enter .ant-modal,
+.ant-modal-root .ant-zoom-appear .ant-modal,
+.ant-zoom-enter .ant-modal,
+.ant-zoom-appear .ant-modal,
+.ant-modal {
+  transform: none !important;
+}
+
+/* Modal 退出：只保留淡出 */
+.ant-modal-root .ant-zoom-leave,
+.ant-zoom-leave {
+  animation: antFadeOut 0.2s cubic-bezier(0.4, 0, 0.6, 1) both !important;
+  transform: none !important;
+}
+
+.ant-modal-root .ant-zoom-leave .ant-modal,
+.ant-zoom-leave .ant-modal {
+  transform: none !important;
+}
+
+/* 纯淡入动画 */
+@keyframes antFadeIn {
+  0% {
+    opacity: 0;
+    transform: none !important;
+  }
+  100% {
+    opacity: 1;
+    transform: none !important;
+  }
+}
+
+/* 纯淡出动画 */
+@keyframes antFadeOut {
+  0% {
+    opacity: 1;
+    transform: none !important;
+  }
+  100% {
+    opacity: 0;
+    transform: none !important;
+  }
+}
+
+/* 设置面板容器 - 磨砂玻璃效果 */
+.ant-modal-root .ant-modal-content {
+  /* 磨砂玻璃背景 */
+  background: rgba(50, 48, 47, 0.85) !important;
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  
+  /* 新拟态边框 */
+  border: 1px solid rgba(212, 190, 152, 0.15) !important;
+  border-radius: 20px !important;
+  
+  /* 柔和的外阴影 */
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  
+  /* 添加微妙的内部光效 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 为 ManageModelsPopup 添加一个特定的 class */
+.manage-models-popup-modal .ant-modal-content {
+  background: rgba(50, 48, 47, 0.95) !important;
+}
+
+
+/* 磨砂玻璃顶部光晕效果 */
+.ant-modal-root .ant-modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 设置面板标题栏 */
+.ant-modal-root .ant-modal-header {
+  background: rgba(60, 56, 54, 0) !important;
+}
+
+/* 设置面板标题文字 */
+.ant-modal-root .ant-modal-header .ant-modal-title {
+  color: var(--gruvbox-fg1) !important;
+  font-weight: 600;
+  font-size: 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 设置面板内容区域 */
+.ant-modal-root .ant-modal-body {
+  padding: 10px !important;
+  background: transparent !important;
+  
+  /* 文字颜色 */
+  color: var(--gruvbox-fg1) !important;
+}
+
+/* 设置面板底部按钮区 */
+.ant-modal-root .ant-modal-footer {
+  
+  padding: 16px 24px !important;
+  
+}
+
+/* 关闭按钮优化 */
+.ant-modal-root .ant-modal-close {
+  color: var(--gruvbox-fg0) !important;
+  transition: all 0.3s ease;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.ant-modal-root .ant-modal-close:hover {
+  color: var(--gruvbox-red) !important;
+  transform: rotate(90deg);
+}
+
+/* 设置项卡片 - 新拟态风格 */
+.ant-modal-root .ant-modal-body .ant-card,
+.ant-modal-root .ant-modal-body [class*="Card"] {
+  border-radius: 12px !important;
+}
+
+
+.ant-modal-root .ant-modal-body .ant-card:hover,
+.ant-modal-root .ant-modal-body [class*="Card"]:hover {
+  background-color: var(--gruvbox-bg3);
+}
+
+
+/* 输入框优化 */
+.ant-modal-root .ant-input,
+.ant-modal-root .ant-input-number,
+.ant-modal-root .ant-select-selector,
+.ant-modal-root textarea {
+  padding: 10px;
+  background: rgba(60, 56, 54, 0.6) !important;
+  backdrop-filter: blur(8px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.15) !important;
+  border-radius: 10px !important;
+  
+  color: var(--gruvbox-fg1) !important;
+  
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 2px rgba(80, 73, 69, 0.1);
+
+    padding: 10px !important;
+}
+
+.ant-modal-root .ant-input:focus,
+.ant-modal-root .ant-input-number:focus,
+.ant-modal-root .ant-select-selector:focus,
+.ant-modal-root textarea:focus {
+  border-color: rgba(169, 182, 101, 0.4) !important;
+  
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 2px rgba(80, 73, 69, 0.1),
+    0 0 12px rgba(169, 182, 101, 0.15) !important;
+}
+
+/* 开关按钮优化 */
+.ant-modal-root .ant-switch {
+  background: rgba(80, 73, 69, 0.6) !important;
+  border: 1px solid rgba(212, 190, 152, 0.1);
+}
+
+.ant-modal-root .ant-switch-checked {
+  background: linear-gradient(135deg, var(--gruvbox-green), var(--gruvbox-aqua)) !important;
+  box-shadow: 0 0 12px rgba(169, 182, 101, 0.3);
+}
+
+/* 按钮优化 */
+.ant-modal-root .ant-btn {
+  background: rgba(60, 56, 54, 0.6) !important;
+  backdrop-filter: blur(6px);
+  
+  border: 1px solid rgba(212, 190, 152, 0.1) !important;
+  border-radius: 10px !important;
+  
+  color: var(--gruvbox-fg1) !important;
+  
+  box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.2),
+    -1px -1px 3px rgba(80, 73, 69, 0.15);
+  
+  transition: all 0.2s ease;
+}
+
+.ant-modal-root .ant-btn:hover {
+  background: rgba(69, 64, 61, 0.7) !important;
+  border-color: rgba(169, 182, 101, 0.25) !important;
+  
+  box-shadow: 
+    3px 3px 8px rgba(0, 0, 0, 0.25),
+    -2px -2px 5px rgba(80, 73, 69, 0.2),
+    0 0 10px rgba(169, 182, 101, 0.1);
+
+}
+
+.ant-modal-root .ant-btn-primary {
+  background: linear-gradient(135deg, var(--gruvbox-green), var(--gruvbox-aqua)) !important;
+  border: none !important;
+  color: var(--gruvbox-bg0) !important;
+  font-weight: 600;
+  
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.3),
+    -2px -2px 6px rgba(169, 182, 101, 0.2) !important;
+}
+
+.ant-modal-root .ant-btn-primary:hover {
+  background: linear-gradient(135deg, 
+    rgba(169, 182, 101, 0.9), 
+    rgba(137, 180, 130, 0.9)
+  ) !important;
+  
+  box-shadow: 
+    5px 5px 12px rgba(0, 0, 0, 0.35),
+    -2px -2px 8px rgba(169, 182, 101, 0.25),
+    0 0 16px rgba(169, 182, 101, 0.2) !important;
+}
+
+/* 标签页优化 */
+.ant-modal-root .ant-tabs-nav {
+  background: transparent !important;
+  border-radius: 12px;
+  margin-bottom: 16px !important;
+  padding: 8px !important;
+}
+
+.ant-modal-root .ant-tabs-tab {
+  border-radius: 8px !important;
+  color: var(--gruvbox-fg0) !important;
+  transition: all 0.2s ease;
+  padding: 5px 10px;
+}
+
+
+.ant-modal-root .ant-tabs-tab-active {
+  background: rgba(169, 182, 101, 0.2) !important;
+  color: var(--gruvbox-green) !important;
+  font-weight: 600;
+
+}
+
+/* 亮色模式适配 */
+[theme-mode='light'] .ant-modal-root .ant-modal-content {
+  background: rgba(251, 241, 199, 0.9) !important;
+  border-color: rgba(101, 71, 53, 0.15) !important;
+  
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+[theme-mode='light'] .ant-modal-root .ant-modal-header {
+  background: rgba(242, 229, 188, 0.6) !important;
+  border-bottom-color: rgba(101, 71, 53, 0.1) !important;
+}
+
+[theme-mode='light'] .ant-modal-root .ant-modal-footer {
+  background: rgba(242, 229, 188, 0.6) !important;
+  border-top-color: rgba(101, 71, 53, 0.1) !important;
+}
+
+[theme-mode='light'] .ant-modal-root .ant-modal-header .ant-modal-title {
+  color: var(--gruvbox-light-fg1) !important;
+}
+
+[theme-mode='light'] .ant-modal-root .ant-modal-body {
+  color: var(--gruvbox-light-fg1) !important;
+}
+
+[theme-mode='light'] .ant-modal-root .ant-input,
+[theme-mode='light'] .ant-modal-root .ant-input-number,
+[theme-mode='light'] .ant-modal-root .ant-select-selector,
+[theme-mode='light'] .ant-modal-root textarea {
+  background: rgba(242, 229, 188, 0.6) !important;
+  border-color: rgba(101, 71, 53, 0.15) !important;
+  color: var(--gruvbox-light-fg1) !important;
+  
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.08),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+[theme-mode='light'] .ant-modal-root .ant-card,
+[theme-mode='light'] .ant-modal-root [class*="Card"] {
+  background: rgba(242, 229, 188, 0.5) !important;
+  border-color: rgba(101, 71, 53, 0.12) !important;
+  
+  box-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.08),
+    -1px -1px 4px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 调整面板高度，减少多余的滚动条 */
+.ant-modal:not(.ant-modal-confirm) .ant-modal-content .ant-modal-body {
+  max-height: 82vh;
+}
+
+
+.rLLBC {
+  height: calc(80vh);
+}
+
+/* 移除提示词输入框边界 */
+.cslxle {
+  border: none;
+}
+
+/* 聊天界面模型选择框的供应商标题 */
+
+[class^="GroupItem"] {
+  background-color: var(--gruvbox-bg1);
+  border-radius: 10px;
+}
+
+
+[class^="OutputContainer"], [class^="AreaContainer"] {
+  background-color: var(--gruvbox-chocolate-half-transparent);
+  backdrop-filter: blur(10px);
+}
+
+
+
+.home-tabs [class^="GroupTitle"]{
+	margin-top: 15px;
+}
+
+[class^="GroupTitleDivider"] {
+  display: none;
+}
+
+
+[class^="InputContainer"] {
+  max-height: 150px !important;
+}

@@ -1,0 +1,576 @@
+/* 
+ * Cherry Studio Custom CSS Template Collection
+ * 这是一个完整的自定义 CSS 模板集合，提供多种预设主题
+ * 
+ * 使用方法：
+ * 1. 复制你想要的模板
+ * 2. 打开 Cherry Studio
+ * 3. 进入 设置 → 显示 → 自定义 CSS
+ * 4. 粘贴代码并保存
+ * 
+ * 提示：可以混合使用不同模板的部分，或者基于这些模板创建自己的样式
+ */
+
+/* ========================================
+ * 通用自定义样式
+ * 应用于所有消息的全局样式
+ * ======================================== */
+
+/* 消息容器背景层 - 添加背景图片 */
+.message-user,
+.message-assistant {
+  background-image: url("https://images.pexels.com/photos/750225/pexels-photo-750225.jpeg") !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* 消息气泡 - 磨砂半透明效果 */
+.message-user .message-content-container,
+.message-assistant .message-content-container {
+  font-size: 16px !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* 用户消息气泡 - 低饱和度半透明背景 */
+.message-user .message-content-container {
+  background: rgba(200, 220, 210, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 助手消息气泡 - 半透明背景 */
+.message-assistant .message-content-container {
+  background: rgba(240, 240, 240, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式下的调整 */
+[theme-mode='dark'] .message-user .message-content-container {
+  background: rgba(100, 120, 110, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[theme-mode='dark'] .message-assistant .message-content-container {
+  background: rgba(60, 60, 60, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+ * 模板 1: 极简优雅主题
+ * 特点：简洁、大方、专注内容
+ * ======================================== */
+ 
+/* 整体圆角调整 - 更加柔和 */
+:root {
+  --radius: 16px;
+  --list-item-border-radius: 16px;
+}
+
+/* 消息气泡优化 - 更加突出 */
+.message-user .message-content-container {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-soft) 100%) !important;
+  border-radius: 18px 18px 4px 18px !important;
+  box-shadow: 0 2px 8px rgba(0, 185, 107, 0.2);
+}
+
+.message-assistant .message-content-container {
+  background: var(--color-background-soft) !important;
+  border-radius: 18px 18px 18px 4px !important;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 16px !important;
+}
+
+/* 打字机效果的光标 */
+.typing-indicator::after {
+  content: '▋';
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
+/* ========================================
+ * 模板 2: 赛博朋克风格
+ * 特点：霓虹灯效果、科技感强
+ * ======================================== */
+
+/* 主色调霓虹效果 */
+[theme-mode='dark'] {
+  --color-primary: #00ffff;
+  --color-primary-soft: #00ffff99;
+  --neon-glow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+}
+
+/* 消息边框霓虹效果 */
+[theme-mode='dark'] .message-user .message-content-container {
+  border: 1px solid #00ffff;
+  box-shadow: var(--neon-glow);
+  background: rgba(0, 255, 255, 0.05) !important;
+}
+
+/* 输入框霓虹效果 */
+[theme-mode='dark'] textarea:focus,
+[theme-mode='dark'] input:focus {
+  outline: none !important;
+  border-color: #00ffff !important;
+  box-shadow: var(--neon-glow) !important;
+}
+
+/* 滚动条霓虹效果 */
+[theme-mode='dark'] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff 0%, #ff00ff 100%);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* 链接霓虹效果 */
+[theme-mode='dark'] .markdown a,
+[theme-mode='dark'] .link {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+
+/* ========================================
+ * 模板 3: 温暖舒适主题
+ * 特点：暖色调、护眼、适合长时间使用
+ * ======================================== */
+
+[theme-mode='dark'] {
+  --color-background: #1a1612;
+  --color-background-soft: #2a2420;
+  --color-background-mute: #3a3430;
+  --color-primary: #ff9966;
+  --color-text: #f5e6d3;
+}
+
+[theme-mode='light'] {
+  --color-background: #fdf6e3;
+  --color-background-soft: #f5ead6;
+  --color-primary: #ff8844;
+}
+
+/* 消息温暖色调 */
+.message-user .message-content-container {
+  background: linear-gradient(135deg, #ff9966 0%, #ffaa77 100%) !important;
+  color: #1a1612 !important;
+}
+
+.message-assistant .message-content-container {
+  background: rgba(255, 153, 102, 0.08) !important;
+  border-left: 3px solid #ff9966;
+}
+
+/* 代码块温暖色调 */
+[theme-mode='dark'] .markdown pre {
+  background-color: #2a2420 !important;
+  border: 1px solid #3a3430;
+}
+
+
+/* ========================================
+ * 模板 4: 玻璃拟态 (Glassmorphism)
+ * 特点：半透明、模糊背景、现代感
+ * ======================================== */
+
+/* 消息气泡玻璃效果 */
+.message-content-container {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.message-user .message-content-container {
+  background: rgba(0, 185, 107, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 185, 107, 0.3);
+}
+
+/* 侧边栏玻璃效果 */
+[navbar-position='left'] #content-container {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* 卡片玻璃效果 */
+.ant-card,
+.hero-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ========================================
+ * 模板 5: 高对比度主题
+ * 特点：增强可读性、适合视力不佳的用户
+ * ======================================== */
+
+/* 增强文字对比度 */
+:root {
+  --color-text: #ffffff;
+  --color-text-secondary: #e0e0e0;
+}
+
+[theme-mode='light'] {
+  --color-text: #000000;
+  --color-text-secondary: #1a1a1a;
+  --color-background: #ffffff;
+}
+
+/* 增强边框可见性 */
+.message-content-container,
+.ant-card,
+.hero-card {
+  border: 2px solid var(--color-border) !important;
+}
+
+/* 增强消息对比度 */
+[theme-mode='dark'] .message-user .message-content-container {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[theme-mode='dark'] .message-assistant .message-content-container {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+}
+
+/* 增强链接可见性 */
+.markdown a,
+.link {
+  color: var(--color-primary) !important;
+  text-decoration: underline !important;
+  font-weight: 600;
+}
+
+
+/* ========================================
+ * 模板 6: 紧凑布局
+ * 特点：节省空间、适合小屏幕
+ * ======================================== */
+
+/* 减小间距 */
+.message-content-container {
+  padding: 8px 12px !important;
+  margin: 4px 0 !important;
+}
+
+.markdown p {
+  margin: 0.5em 0 !important;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin: 0.8em 0 0.5em 0 !important;
+}
+
+/* 紧凑的代码块 */
+.markdown pre {
+  margin: 0.8em 0 !important;
+  padding: 8px !important;
+}
+
+/* 紧凑的列表 */
+.markdown ul,
+.markdown ol {
+  margin: 0.5em 0 !important;
+  padding-left: 1.2em !important;
+}
+
+.markdown li {
+  margin-bottom: 0.2em !important;
+}
+
+
+/* ========================================
+ * 模板 7: 舒适阅读
+ * 特点：大字体、宽行间距、易于阅读
+ * ======================================== */
+
+/* 增大字体 */
+body {
+  font-size: 16px !important;
+}
+
+.markdown {
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+}
+
+/* 增大标题 */
+.markdown h1 { font-size: 2.2em !important; }
+.markdown h2 { font-size: 1.8em !important; }
+.markdown h3 { font-size: 1.4em !important; }
+
+/* 增大代码字体 */
+.markdown code {
+  font-size: 15px !important;
+}
+
+.markdown pre code {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* 增加段落间距 */
+.markdown p {
+  margin: 1.5em 0 !important;
+}
+
+/* 限制行宽，提高可读性 */
+.markdown {
+  max-width: 800px;
+}
+
+
+/* ========================================
+ * 模板 8: 彩虹渐变主题
+ * 特点：多彩、活力、个性化
+ * ======================================== */
+
+/* 彩虹渐变背景 */
+.message-user .message-content-container {
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 25%,
+    #f093fb 50%,
+    #4facfe 75%,
+    #00f2fe 100%
+  ) !important;
+  color: white !important;
+}
+
+/* 彩虹滚动条 */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #667eea 0%,
+    #764ba2 25%,
+    #f093fb 50%,
+    #4facfe 75%,
+    #00f2fe 100%
+  );
+}
+
+/* 彩虹边框 */
+.message-content-container {
+  border-image: linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2,
+    #f093fb,
+    #4facfe,
+    #00f2fe
+  ) 1;
+}
+
+/* 彩虹链接 */
+.markdown a,
+.link {
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ========================================
+ * 模板 9: 深色 OLED 纯黑主题
+ * 特点：省电、适合 OLED 屏幕
+ * ======================================== */
+
+[theme-mode='dark'] {
+  --color-background: #000000;
+  --color-background-soft: #0a0a0a;
+  --color-background-mute: #121212;
+}
+
+[theme-mode='dark'] .message-content-container {
+  background: #0a0a0a !important;
+}
+
+[theme-mode='dark'] .message-user .message-content-container {
+  background: #1a1a1a !important;
+}
+
+[theme-mode='dark'] #content-container {
+  background: #000000 !important;
+}
+
+[theme-mode='dark'] .markdown pre {
+  background-color: #0a0a0a !important;
+}
+
+
+/* ========================================
+ * 模板 10: 毛玻璃模糊效果增强
+ * 特点：柔和、梦幻、层次感
+ * ======================================== */
+
+/* 增强毛玻璃效果 */
+.message-content-container {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 悬停效果 */
+.message-content-container:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* 卡片毛玻璃 */
+.ant-card,
+.hero-card,
+[navbar-position='left'] {
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+}
+
+
+/* ========================================
+ * 实用增强功能
+ * 可以添加到任何主题中
+ * ======================================== */
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 消息淡入动画 */
+.message-content-container {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 悬停高亮效果 */
+.message-content-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+/* 代码块复制按钮美化 */
+.code-block-header {
+  background: var(--color-background-mute) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Markdown 表格美化 */
+.markdown table {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.markdown th {
+  background: var(--color-primary) !important;
+  color: white !important;
+}
+
+.markdown tr:nth-child(even) {
+  background: var(--color-background-soft);
+}
+
+/* 引用块美化 */
+.markdown blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 20px;
+  font-style: normal;
+  background: linear-gradient(90deg, var(--color-primary-mute) 0%, transparent 100%);
+}
+
+/* 选中文本高亮 */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* 链接悬停效果 */
+.markdown a:hover,
+.link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: all 0.2s ease;
+}
+
+/* 图片圆角和阴影 */
+.markdown img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.markdown img:hover {
+  transform: scale(1.02);
+}
+
+/* 代码块行号 */
+.markdown pre code {
+  counter-reset: line;
+}
+
+/* 滚动条平滑过渡 */
+::-webkit-scrollbar-thumb {
+  transition: background 0.2s ease;
+}
+
+/* 输入框聚焦效果 */
+textarea:focus,
+input:focus {
+  box-shadow: 0 0 0 2px var(--color-primary-mute);
+  transition: box-shadow 0.2s ease;
+}
+
+
+/* ========================================
+ * 自定义提示
+ * ======================================== */
+
+/*
+ * 💡 提示：
+ * 
+ * 1. 可以同时使用多个模板的部分
+ * 2. 使用 [theme-mode='dark'] 或 [theme-mode='light'] 为不同主题定制
+ * 3. 使用 !important 确保样式优先级
+ * 4. 可以使用浏览器开发者工具实时测试效果
+ * 5. 访问 https://cherrycss.com/ 获取更多模板
+ * 
+ * 🎨 颜色变量参考：
+ * var(--color-primary)          - 主题色
+ * var(--color-background)        - 背景色
+ * var(--color-text)             - 文字色
+ * var(--color-border)           - 边框色
+ * var(--color-hover)            - 悬停色
+ * 
+ * 📦 常用选择器：
+ * .message-user                 - 用户消息
+ * .message-assistant            - AI 消息
+ * .message-content-container    - 消息内容
+ * .markdown                     - Markdown 内容
+ * 
+ * 🔧 开发者工具：
+ * Cmd+Option+I (Mac) 或 F12 (Windows/Linux) 打开
+ */

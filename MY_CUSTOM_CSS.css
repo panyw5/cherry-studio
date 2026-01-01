@@ -1,0 +1,567 @@
+/* 
+ * 我的个人 Cherry Studio 自定义样式
+ * 
+ * 设计理念：
+ * - 清晰的视觉层次
+ * - 舒适的阅读体验
+ * - 专业的外观
+ * - 细节的打磨
+ * 
+ * 使用方法：
+ * 复制此文件全部内容，粘贴到 Cherry Studio 设置 → 显示 → 自定义 CSS
+ */
+
+/* ========================================
+ * 1. 全局优化
+ * ======================================== */
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 全局圆角调整 */
+:root {
+  --radius: 12px;
+  --list-item-border-radius: 12px;
+}
+
+/* 字体微调（可选） */
+body {
+  letter-spacing: 0.02em;
+}
+
+
+/* ========================================
+ * 2. 消息气泡美化
+ * ======================================== */
+
+/* 用户消息 - 右对齐气泡 */
+.message-user .message-content-container {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-soft) 100%) !important;
+  border-radius: 16px 16px 4px 16px !important;
+  box-shadow: 0 2px 12px rgba(0, 185, 107, 0.25);
+  padding: 12px 16px !important;
+  max-width: 85%;
+}
+
+/* AI 助手消息 - 左对齐气泡 */
+.message-assistant .message-content-container {
+  background: var(--color-background-soft) !important;
+  border-radius: 16px 16px 16px 4px !important;
+  border-left: 3px solid var(--color-primary);
+  padding: 12px 16px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 消息淡入动画 */
+.message-content-container {
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 消息悬停效果 */
+.message-content-container:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+
+/* ========================================
+ * 3. Markdown 内容优化
+ * ======================================== */
+
+/* 标题样式增强 */
+.markdown h1 {
+  font-size: 2em !important;
+  font-weight: 700 !important;
+  margin: 1.2em 0 0.8em 0 !important;
+  padding-bottom: 0.4em !important;
+  border-bottom: 2px solid var(--color-primary) !important;
+}
+
+.markdown h2 {
+  font-size: 1.6em !important;
+  font-weight: 600 !important;
+  margin: 1em 0 0.6em 0 !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.markdown h3 {
+  font-size: 1.3em !important;
+  font-weight: 600 !important;
+  margin: 0.8em 0 0.5em 0 !important;
+  color: var(--color-primary);
+}
+
+/* 段落优化 */
+.markdown p {
+  margin: 1em 0 !important;
+  line-height: 1.8 !important;
+}
+
+/* 链接美化 */
+.markdown a,
+.link {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.markdown a:hover,
+.link:hover {
+  border-bottom: 1px solid var(--color-primary);
+  opacity: 0.8;
+}
+
+
+/* ========================================
+ * 4. 代码块美化
+ * ======================================== */
+
+/* 行内代码 */
+.markdown p code,
+.markdown li code {
+  background: var(--color-primary-mute) !important;
+  color: var(--color-primary) !important;
+  padding: 3px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+  font-weight: 500;
+}
+
+/* 代码块 */
+.markdown pre {
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin: 1.5em 0 !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.markdown pre code {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* 代码块语言标签美化（如果支持） */
+.code-block-header {
+  background: var(--color-background-mute) !important;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 16px !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ========================================
+ * 5. 列表优化
+ * ======================================== */
+
+.markdown ul,
+.markdown ol {
+  margin: 1em 0 !important;
+  padding-left: 2em !important;
+}
+
+.markdown li {
+  margin-bottom: 0.6em !important;
+  line-height: 1.7 !important;
+}
+
+/* 自定义列表标记 */
+.markdown ul li::marker {
+  color: var(--color-primary);
+  font-size: 1.2em;
+}
+
+.markdown ol li::marker {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+
+/* ========================================
+ * 6. 引用块美化
+ * ======================================== */
+
+.markdown blockquote,
+.markdown .markdown-alert {
+  margin: 1.5em 0 !important;
+  padding: 16px 20px !important;
+  border-radius: 8px !important;
+  border-left: 4px solid var(--color-primary) !important;
+  background: linear-gradient(90deg, 
+    var(--color-primary-mute) 0%, 
+    transparent 100%) !important;
+  font-style: normal !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.markdown blockquote p {
+  margin: 0.5em 0 !important;
+}
+
+
+/* ========================================
+ * 7. 表格美化
+ * ======================================== */
+
+.markdown table {
+  margin: 2em 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border) !important;
+}
+
+.markdown th {
+  background: var(--color-primary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  padding: 12px 16px !important;
+}
+
+.markdown td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.markdown tr:hover {
+  background: var(--color-background-soft) !important;
+  transition: background 0.2s ease;
+}
+
+.markdown tr:last-child td {
+  border-bottom: none !important;
+}
+
+
+/* ========================================
+ * 8. 图片优化
+ * ======================================== */
+
+.markdown img {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 1.5em 0 !important;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+.markdown img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========================================
+ * 9. 滚动条美化
+ * ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-soft);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+
+/* ========================================
+ * 10. 选中文本美化
+ * ======================================== */
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+
+/* ========================================
+ * 11. 输入框优化
+ * ======================================== */
+
+textarea:focus,
+input:focus {
+  outline: none !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px var(--color-primary-mute) !important;
+  transition: all 0.2s ease;
+}
+
+
+/* ========================================
+ * 12. 数学公式美化（如果使用 KaTeX）
+ * ======================================== */
+
+.katex,
+mjx-container {
+  padding: 4px 8px !important;
+  border-radius: 4px;
+  background: var(--color-background-soft);
+}
+
+
+/* ========================================
+ * 13. 脚注美化
+ * ======================================== */
+
+.footnotes {
+  margin-top: 2em !important;
+  padding: 16px 20px !important;
+  background: var(--color-background-soft) !important;
+  border-radius: 12px !important;
+  border-left: 3px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.footnotes h4 {
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+.markdown .footnote-ref {
+  background: var(--color-primary);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 2px;
+  transition: all 0.2s ease;
+}
+
+.markdown .footnote-ref:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+ * 14. 暗色模式特殊优化
+ * ======================================== */
+
+[theme-mode='dark'] .message-user .message-content-container {
+  box-shadow: 0 2px 12px rgba(0, 185, 107, 0.3);
+}
+
+[theme-mode='dark'] .markdown pre {
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[theme-mode='dark'] .markdown table {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========================================
+ * 15. 亮色模式特殊优化
+ * ======================================== */
+
+[theme-mode='light'] .message-user .message-content-container {
+  color: white !important;
+}
+
+[theme-mode='light'] .message-assistant .message-content-container {
+  background: #f8f9fa !important;
+}
+
+[theme-mode='light'] .markdown pre {
+  background: #f5f5f5 !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+
+/* ========================================
+ * 16. 响应式调整
+ * ======================================== */
+
+/* 小屏幕优化 */
+@media (max-width: 768px) {
+  .message-content-container {
+    max-width: 95% !important;
+  }
+  
+  .markdown h1 {
+    font-size: 1.8em !important;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5em !important;
+  }
+}
+
+
+/* ========================================
+ * 17. 其他细节优化
+ * ======================================== */
+
+/* 分隔线美化 */
+.markdown hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-primary) 50%, 
+    transparent 100%) !important;
+  margin: 2em 0 !important;
+}
+
+/* 强调文本 */
+.markdown strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* 斜体文本 */
+.markdown em {
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* 删除线 */
+.markdown del {
+  opacity: 0.6;
+}
+
+/* 上标和下标 */
+.markdown sup {
+  background: var(--color-primary);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+
+/* ========================================
+ * 18. 加载动画（如果需要）
+ * ======================================== */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+
+/* ========================================
+ * 19. 打印样式优化（可选）
+ * ======================================== */
+
+@media print {
+  .message-content-container {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .markdown a {
+    text-decoration: underline !important;
+  }
+}
+
+
+/* ========================================
+ * 20. 实验性功能（谨慎使用）
+ * ======================================== */
+
+/* 启用前请测试 */
+
+/* 打字机效果的光标 */
+/*
+.typing-indicator::after {
+  content: '▋';
+  animation: blink 1s infinite;
+  color: var(--color-primary);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+*/
+
+/* 消息悬浮效果 */
+/*
+.message-content-container:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-4px) !important;
+}
+*/
+
+/* 毛玻璃效果（可能影响性能） */
+/*
+.message-content-container {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+*/
+
+
+/* ========================================
+ * 自定义笔记
+ * ======================================== */
+
+/*
+ * 📝 我的配色方案：
+ * 主色：var(--color-primary) - #00b96b (默认绿色)
+ * 
+ * 💡 快速调整：
+ * 1. 修改圆角：调整 --radius 变量
+ * 2. 修改主色调：在设置中更改主题色
+ * 3. 修改字体大小：调整 body 的 font-size
+ * 
+ * 🔧 调试技巧：
+ * - 按 F12 打开开发者工具
+ * - 在 Elements 标签中查找 #user-defined-custom-css
+ * - 在 Console 中测试新样式
+ * 
+ * 📚 学习资源：
+ * - CSS 变量: https://developer.mozilla.org/zh-CN/docs/Web/CSS/--*
+ * - 选择器: https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Selectors
+ * - Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ * 
+ * 🎨 更多模板：
+ * - 访问 https://cherrycss.com/
+ * - GitHub: https://github.com/CherryHQ/cherry-studio
+ */
